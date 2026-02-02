@@ -1,1 +1,4 @@
-
+transaction_id,user_id,game_id,amount,currency,transaction_time
+5001,1,game_1,4.99,USD,2024-01-01 10:10:00
+5002,1,game_1,2.99,USD,2024-01-08 08:05:00
+5003,3,game_2,9.99,USD,2024-01-03 12:10:00
