@@ -6,4 +6,4 @@ SELECT
 FROM {{ ref('int_daily_user_activity') }}
 GROUP BY
     game_id,
-    activity_date;
+    activity_date
