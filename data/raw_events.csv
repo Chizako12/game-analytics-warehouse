@@ -1,1 +1,7 @@
-
+event_id,user_id,game_id,event_type,event_time,session_id
+1001,1,game_1,login,2024-01-01 10:00:00,s1
+1002,1,game_1,match_start,2024-01-01 10:05:00,s1
+1003,2,game_1,login,2024-01-02 11:00:00,s2
+1004,1,game_1,login,2024-01-02 09:00:00,s3
+1005,3,game_2,login,2024-01-03 12:00:00,s4
+1006,1,game_1,login,2024-01-08 08:00:00,s5
