@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: fact_daily_active_users
+    description: Daily active users per game
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+      - name: activity_date
+        tests:
+          - not_null
+      - name: daily_active_users
+        tests:
+          - not_null
+
+  - name: fact_revenue
+    description: Daily gross revenue per game
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+      - name: transaction_date
+        tests:
+          - not_null
+      - name: total_revenue_usd
+        tests:
+          - not_null
+
+  - name: fact_user_retention
+    description: Cohort-based retention counts
+    columns:
+      - name: game_id
+        tests:
+          - not_null
+      - name: cohort_date
+        tests:
+          - not_null
+      - name: cohort_size
+        tests:
+          - not_null
+
+  - name: fact_user_retention_rates
+    description: Retention rates derived from cohort counts
+    columns:
+      - name: retention_rate_day_1
+        tests:
+          - not_null
+      - name: retention_rate_day_7
+        tests:
+          - not_null
+      - name: retention_rate_day_30
+        tests:
+          - not_null
+
+  - name: fact_goty_public_performance
+    description: Public benchmark metrics for GOTY titles
+    columns:
+      - name: game_id
+        tests:
+          - not_null
