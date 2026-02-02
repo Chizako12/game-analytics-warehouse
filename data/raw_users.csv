@@ -1,1 +1,4 @@
-
+user_id,created_at,country,platform
+1,2024-01-01,US,iOS
+2,2024-01-02,ID,Android
+3,2024-01-03,BR,PC
