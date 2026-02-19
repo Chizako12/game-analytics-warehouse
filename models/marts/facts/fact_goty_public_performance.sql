@@ -1,8 +1,3 @@
--- fact_goty_public_performance.sql
--- Purpose: Publicly estimated performance metrics for GOTY titles
--- NOTE: Values are approximations based on public reports and are
--- intended for comparative analysis only.
-
 SELECT
     'goty_2023' AS game_id,
     'Baldur’s Gate 3' AS game_name,
@@ -19,7 +14,7 @@ SELECT
     'Astro Bot',
     2024,
     DATE '2025-06-01',
-    300000,          -- conservative estimate due to PSN opacity
+    300000,          
     2300000,
     160000000
 
