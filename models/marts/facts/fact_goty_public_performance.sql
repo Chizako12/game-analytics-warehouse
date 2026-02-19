@@ -1,30 +1,50 @@
-SELECT
-    'goty_2023' AS game_id,
-    'Baldur’s Gate 3' AS game_name,
-    2023 AS goty_year,
-    DATE '2025-06-01' AS metric_month,
-    1800000 AS estimated_monthly_active_players,
-    20000000 AS estimated_total_owners,
-    780000000 AS estimated_lifetime_revenue_usd
+CREATE TABLE public.fact_goty_public_performance (
+    game_id INT REFERENCES public.dim_games(game_id),
+    year INT,
+    revenue_estimate_low_usd BIGINT,
+    revenue_estimate_high_usd BIGINT,
+    copies_sold_millions NUMERIC(5,2),
+    player_activity_note TEXT,
+    PRIMARY KEY (game_id, year)
+);
 
-UNION ALL
-
-SELECT
-    'goty_2024',
-    'Astro Bot',
+INSERT INTO public.fact_goty_public_performance
+(
+    game_id,
+    year,
+    revenue_estimate_low_usd,
+    revenue_estimate_high_usd,
+    copies_sold_millions,
+    player_activity_note
+)
+VALUES
+(
+    1,
+    2023,
+    780000000,
+    1500000000,
+    20.00,
+    'Tens of thousands concurrent on Steam; console activity not publicly disclosed'
+),
+(
+    2,
     2024,
-    DATE '2025-06-01',
-    300000,          
-    2300000,
-    160000000
-
-UNION ALL
-
-SELECT
-    'goty_2025',
-    'Clair Obscur: Expedition 33',
+    NULL,
+    NULL,
+    2.30,
+    'PlayStation-only title; global active player counts not publicly tracked'
+),
+(
+    3,
     2025,
-    DATE '2025-06-01',
-    450000,
-    5000000,
-    250000000;
+    180000000,
+    NULL,
+    5.00,
+    'Peak concurrent ~100k–145k on Steam; console and Game Pass players not fully disclosed'
+);
+
+UPDATE public.fact_goty_public_performance
+SET 
+    revenue_estimate_low_usd = 75000000,
+    revenue_estimate_high_usd = 150000000
+WHERE game_id = 2;
